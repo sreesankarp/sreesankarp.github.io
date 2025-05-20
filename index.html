@@ -88,6 +88,7 @@
       padding: 0.8rem;
       text-align: center;
       font-size: 0.9rem;
+      margin-top: 1rem;
     }
 
     section {
@@ -110,6 +111,10 @@
       box-shadow: 0 5px 25px rgba(0,0,0,0.08);
       transition: transform 0.3s;
       text-align: center;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .service-card:hover {
@@ -154,44 +159,54 @@
       box-shadow: 0 5px 25px rgba(0,0,0,0.08);
     }
 
+    .partners-section {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
     footer {
       background: var(--dark-color);
       color: white;
       padding: 3rem 2rem;
       text-align: center;
     }
+    .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-    }
+  .footer-address {
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+
+  .footer-address i {
+    margin-right: 0.5rem;
+  }
+
   </style>
 </head>
 <body>
 
 <div class="nav-container">
   <nav>
-    <h3 style="color: var(--primary-color); font-weight: 700;">IT Solutions</h3>
+    <h3 style="color: var(--primary-color); font-weight: 700;">Interconnecting Technologies</h3>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
-      <a href="#associates">Partners</a>
+      <a href="#associates">Associates</a>
     </div>
   </nav>
 </div>
 
 <header class="hero" data-aos="fade-up">
   <h1>Precision PCB Solutions</h1>
-  <p class="contact-bar">
+  <div class="contact-bar">
     <i class="fas fa-phone"></i> +91 9895924623 | +91 9447757623 
-    <i class="fas fa-envelope ml-3"></i> it@interconnecting.in
-  </p>
+    <i class="fas fa-envelope"></i> it@interconnecting.in
+  </div>
 </header>
 
 <section id="services">
@@ -209,43 +224,75 @@
     </div>
     <div class="service-card" data-aos="zoom-in">
       <i class="fas fa-cogs"></i>
-      <h3>Product Design</h3>
+      <h3>Product Design & Manufacturing</h3>
       <p>End-to-end product development solutions</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-undo"></i>
+      <h3>Reverse Engineering</h3>
+      <p>Advanced technical analysis and recreation</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-tools"></i>
+      <h3>Mechanical Fabrication</h3>
+      <p>Precision mechanical components manufacturing</p>
     </div>
   </div>
 </section>
 
 <section id="about">
   <div class="about-content" data-aos="fade-up">
-    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">About Our Company</h2>
-    <p>Interconnecting Technologies is a leading provider of PCB design and manufacturing solutions, serving industries across India with cutting-edge technology and precision engineering.</p>
+    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">About Us</h2>
+    <p>Interconnecting Technologies is a leading provider of PCB design, development, and manufacturing solutions, serving industries across India. We bring innovation and precision to every circuit we build.</p>
+    
     <div style="margin-top: 2rem; background: #f4f4f4; padding: 1.5rem; border-radius: 8px;">
       <h4 style="color: var(--accent-color);">Strategic Partnerships</h4>
-      <p>Working with VST IoT Solutions and AS&R Circuits for military-grade manufacturing solutions.</p>
+      <p>Our sister concern <strong>Intechconnect LLP</strong> also offers PCB design and manufacturing, proudly in association with <strong>VST IoT Solutions Pvt. Ltd.</strong> located at Peruva.</p>
     </div>
   </div>
 </section>
 
 <section id="gallery">
-  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Our Work</h2>
+  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">PCB Gallery</h2>
   <div class="gallery-grid">
     <div class="gallery-item" data-aos="zoom-in">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/PCB-003.jpg" alt="PCB Manufacturing">
+      <img src="2014-03-18-edne-gp-mentor3f23bdd1bf5d3475098138a87a56d3bf9.png" alt="PCB Design">
     </div>
     <div class="gallery-item" data-aos="zoom-in">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Printed_circuit_board.png" alt="Circuit Board">
+      <img src="image_2025-05-20_224812866.png" alt="PCB Manufacturing">
     </div>
     <div class="gallery-item" data-aos="zoom-in">
-      <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1950" alt="Electronics Lab">
+      <img src="WhatsApp Image 2025-05-20 at 23.15.48_bf8574ed.jpg" alt="Circuit Board">
+    </div>
+  </div>
+</section>
+
+<section id="associates">
+  <div class="partners-section" data-aos="fade-up">
+    <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Associated Companies</h2>
+    <div class="about-content">
+      <p><strong>Intechconnect LLP</strong> – Partnered with VST IoT Solutions Pvt. Ltd. for PCB manufacturing at Peruva.</p>
+      <p style="margin-top: 1rem;"><strong>AS&R Circuits India Pvt. Ltd.</strong> – Our trusted partner in <strong>Military Grade PCB Manufacturing</strong>.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Interconnecting Technologies</p>
-  <div style="margin-top: 1rem;">
-    <a href="mailto:ppkumarpcb@yahoo.com" style="color: white; text-decoration: none;">ppkumarpcb@yahoo.com</a> | 
-    <a href="mailto:ppkumar.pcb@gmail.com" style="color: white; text-decoration: none;">ppkumar.pcb@gmail.com</a>
+  <div class="footer-content">
+    <p>© 2025 Interconnecting Technologies. All Rights Reserved.</p>
+    
+    <div class="footer-address" data-aos="fade-up">
+      <i class="fas fa-map-marker-alt"></i>
+      PRA42 Keerthanam, Irimpanam P.O<br>
+      Tripunithura, Ernakulam<br>
+      Kerala, India PIN 682309
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <a href="mailto:it@interconnecting.in" style="color: white; text-decoration: none;">it@interconnecting.in</a> | 
+      <a href="mailto:ppkumarpcb@yahoo.com" style="color: white; text-decoration: none;">ppkumarpcb@yahoo.com</a> | 
+      <a href="mailto:ppkumar.pcb@gmail.com" style="color: white; text-decoration: none;">ppkumar.pcb@gmail.com</a>
+    </div>
   </div>
 </footer>
 
