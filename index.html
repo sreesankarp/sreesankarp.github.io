@@ -3,95 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interconnecting Technologies | PCB Design & Manufacturing</title>
+  <title>Interconnecting Technologies | PCB Experts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #f4f7f9;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
       color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #002f5f;
-      color: #fff;
-      padding: 1.5rem 2rem;
+      background: linear-gradient(to right, #002f5f, #005f9e);
+      color: white;
+      padding: 3rem 1rem;
       text-align: center;
+      animation: fadeInDown 1s ease-out;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .contact {
-      background-color: #e2e8f0;
-      padding: 1rem 2rem;
+    header p {
+      font-size: 1.2rem;
+      color: #d1eaff;
+    }
+
+    nav {
+      background-color: #001f3f;
+      color: white;
+      padding: 0.8rem 1.5rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 2rem;
     }
 
-    .contact span {
-      font-weight: bold;
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
 
-    main {
-      padding: 2rem;
+    nav a:hover {
+      color: #ffd700;
     }
 
-    h2 {
-      color: #002f5f;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .section h2 {
+      color: #003366;
+      font-size: 2rem;
       margin-bottom: 1rem;
+      border-left: 5px solid #005f9e;
+      padding-left: 10px;
     }
 
-    ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .services ul {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 0;
+    }
+
+    .services li {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1.2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .services li:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-info {
+      background-color: #e9f3fc;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    .contact-info ul {
+      padding-left: 20px;
     }
 
     footer {
       background-color: #002f5f;
-      color: #fff;
+      color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
+      margin-top: 4rem;
       font-size: 0.9rem;
-      margin-top: 2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Interconnecting Technologies</h1>
-    <p>PCB Design | Manufacturing | Product Development</p>
+    <p>Your Trusted Partner in PCB Design, Manufacturing & Engineering</p>
   </header>
 
-  <section class="contact">
-    <div><span>Contact Numbers:</span> +91 9895924623, +91 9447757623</div>
-    <div><span>Email:</span></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <section class="section services" id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>PCB Design</strong><br>Advanced multi-layer PCB design using the latest tools and standards.</li>
+      <li><strong>PCB Manufacturing</strong><br>High-quality PCB prototyping and mass production.</li>
+      <li><strong>Product Design & Development</strong><br>Complete electronic product lifecycle support.</li>
+      <li><strong>Reverse Engineering</strong><br>Replicate and improve legacy hardware with modern standards.</li>
+      <li><strong>Mechanical Fabrication</strong><br>Custom enclosures, mounts, and mechanical parts for electronics.</li>
+    </ul>
+  </section>
+
+  <section class="section contact-info" id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> +91 9895924623, +91 9447757623</p>
+    <p><strong>Email:</strong></p>
     <ul>
       <li>it@interconnecting.in</li>
       <li>ppkumarpcb@yahoo.com</li>
       <li>ppkumar.pcb@gmail.com</li>
     </ul>
+    <p><strong>Location:</strong> Based in India, serving clients globally</p>
   </section>
 
-  <main>
-    <h2>Our Services</h2>
-    <ul>
-      <li>PCB Design</li>
-      <li>PCB Manufacturing</li>
-      <li>Product Design and Manufacturing</li>
-      <li>Reverse Engineering</li>
-      <li>Mechanical Fabrication</li>
-    </ul>
-  </main>
+  <section class="section" id="about">
+    <h2>About Interconnecting Technologies</h2>
+    <p>
+      With over a decade of experience, Interconnecting Technologies has established itself as a leader in the
+      PCB and electronics design space. Our team of seasoned engineers, designers, and fabricators are dedicated
+      to delivering high-quality solutions across industries including consumer electronics, defense, healthcare, and more.
+    </p>
+    <p>
+      Whether you are a startup developing a new product or a large enterprise optimizing existing designs,
+      we are equipped to deliver agile, reliable, and cost-effective services tailored to your needs.
+    </p>
+  </section>
 
   <footer>
-    &copy; 2025 Interconnecting Technologies. All rights reserved.
+    &copy; 2025 Interconnecting Technologies. All Rights Reserved.
   </footer>
+
 </body>
 </html>
