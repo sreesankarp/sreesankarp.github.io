@@ -2,209 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interconnecting Technologies | PCB Experts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interconnecting Technologies</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --primary-color: #1a1f36;
+      --secondary-color: #ffd700;
+      --accent-color: #e0e0e0;
+      --text-color: #f4f4f4;
+      --card-bg: #252a42;
     }
 
     body {
+      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: linear-gradient(to bottom, #0f0f1a, #1a1f36);
+      color: var(--text-color);
+      scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(to right, #002f5f, #005f9e);
-      color: white;
-      padding: 3rem 1rem;
+      background-color: var(--primary-color);
+      padding: 2rem 1rem;
       text-align: center;
-      animation: fadeInDown 1s ease-out;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     header h1 {
+      color: var(--secondary-color);
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #d1eaff;
+    .contact {
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
     nav {
-      background-color: #001f3f;
-      color: white;
-      padding: 0.8rem 1.5rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
+      padding: 1rem;
+      background-color: #111426;
     }
 
     nav a {
-      color: #fff;
+      color: var(--text-color);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ffd700;
+      color: var(--secondary-color);
     }
 
-    .section {
+    section {
       padding: 4rem 2rem;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
-      animation: fadeInUp 1.2s ease-out;
     }
 
-    .section h2 {
-      color: #003366;
+    .services, .about, .gallery, .associates {
+      text-align: center;
+    }
+
+    .services h2,
+    .about h2,
+    .gallery h2,
+    .associates h2 {
+      color: var(--secondary-color);
+      margin-bottom: 2rem;
       font-size: 2rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #005f9e;
-      padding-left: 10px;
     }
 
-    .services ul {
-      list-style-type: none;
+    .service-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      padding: 0;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
 
-    .services li {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 1.2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    .card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
       transition: transform 0.3s;
     }
 
-    .services li:hover {
-      transform: translateY(-5px);
+    .card:hover {
+      transform: scale(1.05);
     }
 
-    .contact-info {
-      background-color: #e9f3fc;
-      padding: 2rem;
+    .gallery-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-images img {
+      width: 100%;
       border-radius: 8px;
-      margin-top: 2rem;
+      transition: transform 0.3s ease;
     }
 
-    .contact-info p {
-      margin: 0.5rem 0;
-    }
-
-    .contact-info ul {
-      padding-left: 20px;
+    .gallery-images img:hover {
+      transform: scale(1.05);
     }
 
     footer {
-      background-color: #002f5f;
-      color: white;
+      background-color: var(--primary-color);
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 4rem;
+      padding: 2rem;
+      color: var(--accent-color);
       font-size: 0.9rem;
     }
 
-    /* Animations */
-    @keyframes fadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Scroll animation */
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
     }
 
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .section {
-        padding: 2rem 1rem;
-      }
+    body {
+      background: linear-gradient(-45deg, #0f0f1a, #1a1f36, #141a29, #1c1c3c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Interconnecting Technologies</h1>
-    <p>Your Trusted Partner in PCB Design, Manufacturing & Engineering</p>
-  </header>
+<header data-aos="fade-down">
+  <h1>Interconnecting Technologies</h1>
+  <p class="contact">📞 +91 9895924623 | +91 9447757623 | ✉️ it@interconnecting.in | ppkumarpcb@yahoo.com | ppkumar.pcb@gmail.com</p>
+</header>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-  </nav>
+<nav>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#associates">Associates</a>
+</nav>
 
-  <section class="section services" id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li><strong>PCB Design</strong><br>Advanced multi-layer PCB design using the latest tools and standards.</li>
-      <li><strong>PCB Manufacturing</strong><br>High-quality PCB prototyping and mass production.</li>
-      <li><strong>Product Design & Development</strong><br>Complete electronic product lifecycle support.</li>
-      <li><strong>Reverse Engineering</strong><br>Replicate and improve legacy hardware with modern standards.</li>
-      <li><strong>Mechanical Fabrication</strong><br>Custom enclosures, mounts, and mechanical parts for electronics.</li>
-    </ul>
-  </section>
+<section class="services" id="services" data-aos="fade-up">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="card" data-aos="zoom-in">PCB Design</div>
+    <div class="card" data-aos="zoom-in">PCB Manufacturing</div>
+    <div class="card" data-aos="zoom-in">Product Design & Manufacturing</div>
+    <div class="card" data-aos="zoom-in">Reverse Engineering</div>
+    <div class="card" data-aos="zoom-in">Mechanical Fabrication</div>
+  </div>
+</section>
 
-  <section class="section contact-info" id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Phone:</strong> +91 9895924623, +91 9447757623</p>
-    <p><strong>Email:</strong></p>
-    <ul>
-      <li>it@interconnecting.in</li>
-      <li>ppkumarpcb@yahoo.com</li>
-      <li>ppkumar.pcb@gmail.com</li>
-    </ul>
-    <p><strong>Location:</strong> Based in India, serving clients globally</p>
-  </section>
+<section class="about" id="about" data-aos="fade-right">
+  <h2>About Us</h2>
+  <p>
+    Interconnecting Technologies is a leading provider of PCB design, development, and manufacturing solutions, serving industries across India. We bring innovation and precision to every circuit we build.
+  </p>
+  <p>
+    Our sister concern <strong>Intechconnect LLP</strong> also offers PCB design and manufacturing, proudly in association with <strong>VST IoT Solutions Pvt. Ltd.</strong> located at Peruva.
+  </p>
+</section>
 
-  <section class="section" id="about">
-    <h2>About Interconnecting Technologies</h2>
-    <p>
-      With over a decade of experience, Interconnecting Technologies has established itself as a leader in the
-      PCB and electronics design space. Our team of seasoned engineers, designers, and fabricators are dedicated
-      to delivering high-quality solutions across industries including consumer electronics, defense, healthcare, and more.
-    </p>
-    <p>
-      Whether you are a startup developing a new product or a large enterprise optimizing existing designs,
-      we are equipped to deliver agile, reliable, and cost-effective services tailored to your needs.
-    </p>
-  </section>
+<section class="gallery" id="gallery" data-aos="fade-left">
+  <h2>PCB Gallery</h2>
+  <div class="gallery-images">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/PCB_design.svg/1280px-PCB_design.svg.png" alt="PCB Sample">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/PCB-003.jpg" alt="PCB Sample">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Printed_circuit_board.png" alt="PCB Sample">
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 Interconnecting Technologies. All Rights Reserved.
-  </footer>
+<section class="associates" id="associates" data-aos="fade-up">
+  <h2>Associated Companies</h2>
+  <p><strong>Intechconnect LLP</strong> – Partnered with VST IoT Solutions Pvt. Ltd. for PCB manufacturing at Peruva.</p>
+  <p><strong>AS&R Circuits India Pvt. Ltd.</strong> – Our trusted partner in <strong>Military Grade PCB Manufacturing</strong>.</p>
+</section>
 
+<footer>
+  <p>© 2025 Interconnecting Technologies. All Rights Reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 </body>
 </html>
