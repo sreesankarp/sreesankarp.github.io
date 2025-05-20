@@ -1,33 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sample HTML Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-        }
-        h1 {
-            color: darkblue;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interconnecting Technologies | PCB Design & Manufacturing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #002f5f;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .contact {
+      background-color: #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact span {
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #002f5f;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    footer {
+      background-color: #002f5f;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Interconnecting Technologies</h1>
+    <p>PCB Design | Manufacturing | Product Development</p>
+  </header>
 
-    <h1>Welcome to My Sample Page</h1>
-    <p>This is a simple HTML page with some text and a button.</p>
-    <button onclick="showMessage()">Click Me</button>
+  <section class="contact">
+    <div><span>Contact Numbers:</span> +91 9895924623, +91 9447757623</div>
+    <div><span>Email:</span></div>
+    <ul>
+      <li>it@interconnecting.in</li>
+      <li>ppkumarpcb@yahoo.com</li>
+      <li>ppkumar.pcb@gmail.com</li>
+    </ul>
+  </section>
 
-    <script>
-        function showMessage() {
-            alert('Hello! You clicked the button.');
-        }
-    </script>
+  <main>
+    <h2>Our Services</h2>
+    <ul>
+      <li>PCB Design</li>
+      <li>PCB Manufacturing</li>
+      <li>Product Design and Manufacturing</li>
+      <li>Reverse Engineering</li>
+      <li>Mechanical Fabrication</li>
+    </ul>
+  </main>
 
+  <footer>
+    &copy; 2025 Interconnecting Technologies. All rights reserved.
+  </footer>
 </body>
 </html>
