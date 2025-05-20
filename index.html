@@ -3,207 +3,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Interconnecting Technologies</title>
+  <title>Interconnecting Technologies - PCB Solutions</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  
-  <!-- AOS (Animate on Scroll) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- AOS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 
   <style>
     :root {
-      --primary-color: #1a1f36;
-      --secondary-color: #ffd700;
-      --accent-color: #e0e0e0;
-      --text-color: #f4f4f4;
-      --card-bg: #252a42;
+      --primary-color: #2A5C82;
+      --accent-color: #00C1D3;
+      --dark-color: #1A1F36;
+      --light-color: #F8F9FA;
+      --text-color: #3A3A3A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #0f0f1a, #1a1f36);
+      font-family: 'Poppins', sans-serif;
       color: var(--text-color);
-      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      background-color: var(--primary-color);
-      padding: 2rem 1rem;
+    .hero {
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1950') center/cover;
+      padding: 120px 20px 80px;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
-    header h1 {
-      color: var(--secondary-color);
-      font-size: 2.5rem;
+    h1 {
+      font-size: 2.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
-    .contact {
-      font-size: 1rem;
-      margin-top: 0.5rem;
+    .nav-container {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
 
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background-color: #111426;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
       color: var(--text-color);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: var(--secondary-color);
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .services, .about, .gallery, .associates {
-      text-align: center;
-    }
-
-    .services h2,
-    .about h2,
-    .gallery h2,
-    .associates h2 {
-      color: var(--secondary-color);
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .gallery-images {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery-images img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-images img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      text-align: center;
-      padding: 2rem;
+    .nav-links a:hover {
       color: var(--accent-color);
+    }
+
+    .contact-bar {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.8rem;
+      text-align: center;
       font-size: 0.9rem;
     }
 
-    /* Scroll animation */
-    [data-aos] {
-      opacity: 0;
-      transition-property: opacity, transform;
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    body {
-      background: linear-gradient(-45deg, #0f0f1a, #1a1f36, #141a29, #1c1c3c);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .about-content {
+      background: white;
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<header data-aos="fade-down">
-  <h1>Interconnecting Technologies</h1>
-  <p class="contact">📞 +91 9895924623 | +91 9447757623 | ✉️ it@interconnecting.in | ppkumarpcb@yahoo.com | ppkumar.pcb@gmail.com</p>
+<div class="nav-container">
+  <nav>
+    <h3 style="color: var(--primary-color); font-weight: 700;">IT Solutions</h3>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#associates">Partners</a>
+    </div>
+  </nav>
+</div>
+
+<header class="hero" data-aos="fade-up">
+  <h1>Precision PCB Solutions</h1>
+  <p class="contact-bar">
+    <i class="fas fa-phone"></i> +91 9895924623 | +91 9447757623 
+    <i class="fas fa-envelope ml-3"></i> it@interconnecting.in
+  </p>
 </header>
 
-<nav>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#associates">Associates</a>
-</nav>
-
-<section class="services" id="services" data-aos="fade-up">
-  <h2>Our Services</h2>
-  <div class="service-cards">
-    <div class="card" data-aos="zoom-in">PCB Design</div>
-    <div class="card" data-aos="zoom-in">PCB Manufacturing</div>
-    <div class="card" data-aos="zoom-in">Product Design & Manufacturing</div>
-    <div class="card" data-aos="zoom-in">Reverse Engineering</div>
-    <div class="card" data-aos="zoom-in">Mechanical Fabrication</div>
+<section id="services">
+  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-microchip"></i>
+      <h3>PCB Design</h3>
+      <p>Custom circuit board design with precision engineering</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-industry"></i>
+      <h3>PCB Manufacturing</h3>
+      <p>State-of-the-art production facilities</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-cogs"></i>
+      <h3>Product Design</h3>
+      <p>End-to-end product development solutions</p>
+    </div>
   </div>
 </section>
 
-<section class="about" id="about" data-aos="fade-right">
-  <h2>About Us</h2>
-  <p>
-    Interconnecting Technologies is a leading provider of PCB design, development, and manufacturing solutions, serving industries across India. We bring innovation and precision to every circuit we build.
-  </p>
-  <p>
-    Our sister concern <strong>Intechconnect LLP</strong> also offers PCB design and manufacturing, proudly in association with <strong>VST IoT Solutions Pvt. Ltd.</strong> located at Peruva.
-  </p>
-</section>
-
-<section class="gallery" id="gallery" data-aos="fade-left">
-  <h2>PCB Gallery</h2>
-  <div class="gallery-images">
-    <img src="image_2025-05-20_224812866.png" alt="PCB Sample">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/PCB-003.jpg" alt="PCB Sample">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Printed_circuit_board.png" alt="PCB Sample">
+<section id="about">
+  <div class="about-content" data-aos="fade-up">
+    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">About Our Company</h2>
+    <p>Interconnecting Technologies is a leading provider of PCB design and manufacturing solutions, serving industries across India with cutting-edge technology and precision engineering.</p>
+    <div style="margin-top: 2rem; background: #f4f4f4; padding: 1.5rem; border-radius: 8px;">
+      <h4 style="color: var(--accent-color);">Strategic Partnerships</h4>
+      <p>Working with VST IoT Solutions and AS&R Circuits for military-grade manufacturing solutions.</p>
+    </div>
   </div>
 </section>
 
-<section class="associates" id="associates" data-aos="fade-up">
-  <h2>Associated Companies</h2>
-  <p><strong>Intechconnect LLP</strong> – Partnered with VST IoT Solutions Pvt. Ltd. for PCB manufacturing at Peruva.</p>
-  <p><strong>AS&R Circuits India Pvt. Ltd.</strong> – Our trusted partner in <strong>Military Grade PCB Manufacturing</strong>.</p>
+<section id="gallery">
+  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Our Work</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item" data-aos="zoom-in">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/PCB-003.jpg" alt="PCB Manufacturing">
+    </div>
+    <div class="gallery-item" data-aos="zoom-in">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Printed_circuit_board.png" alt="Circuit Board">
+    </div>
+    <div class="gallery-item" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1950" alt="Electronics Lab">
+    </div>
+  </div>
 </section>
 
 <footer>
-  <p>© 2025 Interconnecting Technologies. All Rights Reserved.</p>
+  <p>© 2025 Interconnecting Technologies</p>
+  <div style="margin-top: 1rem;">
+    <a href="mailto:ppkumarpcb@yahoo.com" style="color: white; text-decoration: none;">ppkumarpcb@yahoo.com</a> | 
+    <a href="mailto:ppkumar.pcb@gmail.com" style="color: white; text-decoration: none;">ppkumar.pcb@gmail.com</a>
+  </div>
 </footer>
 
-<!-- AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
   AOS.init({
-    duration: 1000,
-    once: true
+    duration: 800,
+    once: true,
+    offset: 150
+  });
+
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.nav-container');
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(255,255,255,0.98)';
+      nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+    } else {
+      nav.style.background = 'white';
+      nav.style.boxShadow = 'none';
+    }
   });
 </script>
 </body>
