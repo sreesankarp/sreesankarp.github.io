@@ -184,6 +184,22 @@
   .footer-address i {
     margin-right: 0.5rem;
   }
+    .logo {
+  height: 40px;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+/* Update the nav styles */
+nav {
+  padding: 0.5rem 2rem;
+  align-items: center;
+}
+
 
   </style>
 </head>
@@ -191,14 +207,16 @@
 
 <div class="nav-container">
   <nav>
-    <h3 style="color: var(--primary-color); font-weight: 700;">Interconnecting Technologies</h3>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#associates">Associates</a>
-    </div>
-  </nav>
+  <a href="#">
+    <img src="image_2025-05-20_224812866.png" alt="Interconnecting Technologies Logo" class="logo">
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#associates">Associates</a>
+  </div>
+</nav>
 </div>
 
 <header class="hero" data-aos="fade-up">
@@ -283,7 +301,7 @@
     
     <div class="footer-address" data-aos="fade-up">
       <i class="fas fa-map-marker-alt"></i>
-      PRA42 Keerthanam, Irimpanam P.O<br>
+      PRA42 Keerthanam, Perunninakulam, Irimpanam P.O<br>
       Tripunithura, Ernakulam<br>
       Kerala, India PIN 682309
     </div>
