@@ -1,339 +1,1253 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Interconnecting Technologies - PCB Solutions</title>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Professional PCB Design, Manufacturing &amp; Engineering Services. From concept to production with 20+ years of expertise. Single to 38-layer PCBs, reverse engineering, and complete product solutions." name="description">
+<meta content="PCB design, PCB manufacturing, circuit board, electronics, PCB fabrication, reverse engineering" name="keywords">
+<meta content="#5e1df7" name="theme-color">
+<title>Professional PCB Design &amp; Manufacturing Solutions | Interconnecting Technologies</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link as="image" href="https://images.unsplash.com/random/1920x1080?pcb,circuit,electronics,technology" rel="preload">
+<style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #5e1df7;
+            --accent-color: #f8f9fa;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --border-color: #e2e8f0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gradient-primary: linear-gradient(135deg, var(--secondary-color) 0%, #8b5cf6 100%);
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- AOS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root {
-      --primary-color: #2A5C82;
-      --accent-color: #00C1D3;
-      --dark-color: #1A1F36;
-      --light-color: #F8F9FA;
-      --text-color: #3A3A3A;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-color);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
 
-    .hero {
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1950') center/cover;
-      padding: 120px 20px 80px;
-      text-align: center;
-    }
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition-base);
+        }
 
-    h1 {
-      font-size: 2.8rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
+        .header.scrolled {
+            box-shadow: var(--shadow-medium);
+        }
 
-    .nav-container {
-      background: white;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
 
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    .nav-links a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition-base);
+            position: relative;
+            padding: 0.5rem 0;
+        }
 
-    .nav-links a:hover {
-      color: var(--accent-color);
-    }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
 
-    .contact-bar {
-      background: var(--primary-color);
-      color: white;
-      padding: 0.8rem;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-    }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition-base);
+        }
 
-    section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
 
-    .service-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-      text-align: center;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            position: relative;
+            transition: var(--transition-base);
+        }
 
-    .service-card:hover {
-      transform: translateY(-10px);
-    }
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: var(--transition-base);
+        }
 
-    .service-card i {
-      font-size: 2.5rem;
-      color: var(--accent-color);
-      margin-bottom: 1rem;
-    }
+        .hamburger::before {
+            top: -8px;
+        }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+        .hamburger::after {
+            bottom: -8px;
+        }
 
-    .gallery-item {
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.3s;
-    }
+        .mobile-menu-btn.active .hamburger {
+            background: transparent;
+        }
 
-    .gallery-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
+        .mobile-menu-btn.active .hamburger::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
 
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
+        .mobile-menu-btn.active .hamburger::after {
+            bottom: 0;
+            transform: rotate(-45deg);
+        }
 
-    .about-content {
-      background: white;
-      padding: 3rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    }
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .partners-section {
-      text-align: center;
-      margin-top: 3rem;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/random/1920x1080?pcb,circuit,electronics,technology') center/cover;
+            opacity: 0.1;
+        }
 
-    footer {
-      background: var(--dark-color);
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-  .footer-address {
-    margin: 1rem 0;
-    line-height: 1.6;
-  }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
 
-  .footer-address i {
-    margin-right: 0.5rem;
-  }
-    .logo {
-  height: 40px;
-  width: auto;
-  transition: opacity 0.3s ease;
-}
+        .hero .subheadline {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
 
-.logo:hover {
-  opacity: 0.9;
-}
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--secondary-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-medium);
+            min-height: 44px;
+            min-width: 44px;
+        }
 
-/* Update the nav styles */
-nav {
-  padding: 0.5rem 2rem;
-  align-items: center;
-}
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
 
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
 
-  </style>
+        .cta-button.secondary:hover {
+            background: white;
+            color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--accent-color);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: var(--transition-base);
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Solution Section */
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .solution-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        .solution-list {
+            list-style: none;
+        }
+
+        .solution-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--accent-color);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-base);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Social Proof */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-light);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-color);
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            background: var(--accent-color);
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            max-width: 100%;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--accent-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-base);
+            min-height: 44px;
+        }
+
+        .faq-question:hover {
+            background: var(--accent-color);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            transition: var(--transition-base);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-base);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem 1rem;
+                box-shadow: var(--shadow-medium);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition-base);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subheadline {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .benefits-grid,
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-base);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition-base);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: var(--transition-base);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles */
+        button:focus,
+        a:focus,
+        input:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+                --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+                --border-color: #000;
+            }
+        }
+    </style>
 </head>
-<body>
-
-<div class="nav-container">
-  <nav>
-  <a href="#">
-    <img src="image_2025-05-20_224812866.png" alt="Interconnecting Technologies Logo" class="logo">
-  </a>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#associates">Associates</a>
-  </div>
+<body style="outline: none; padding: 0px;" contenteditable="false">
+<!-- Header -->
+<header class="header" id="header">
+<div class="container">
+<nav class="nav">
+<a class="logo" href="#">Interconnecting Technologies</a>
+<ul class="nav-links" id="nav-links">
+<li><a class="nav-link" href="#hero">Home</a></li>
+<li><a class="nav-link" href="#problem">Challenges</a></li>
+<li><a class="nav-link" href="#solution">Solutions</a></li>
+<li><a class="nav-link" href="#benefits">Benefits</a></li>
+<li><a class="nav-link" href="#testimonials">Reviews</a></li>
+<li><a class="nav-link" href="#features">Services</a></li>
+<li><a class="nav-link" href="#faq">FAQ</a></li>
+</ul>
+<button aria-label="Toggle mobile menu" class="mobile-menu-btn" id="mobile-menu-btn">
+<div class="hamburger"></div>
+</button>
 </nav>
 </div>
-
-<header class="hero" data-aos="fade-up">
-  <h1>Interconnecting Technologies</h1>
-  <div class="contact-bar">
-    <i class="fas fa-phone"></i> +91 9895924623 | +91 9447757623 
-    <i class="fas fa-envelope"></i> it@interconnecting.in
-  </div>
 </header>
-
-<section id="services">
-  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Our Services</h2>
-  <div class="services-grid">
-    <div class="service-card" data-aos="zoom-in">
-      <i class="fas fa-microchip"></i>
-      <h3>PCB Design</h3>
-      <p>Custom circuit board design with precision engineering</p>
-    </div>
-    <div class="service-card" data-aos="zoom-in">
-      <i class="fas fa-industry"></i>
-      <h3>PCB Manufacturing</h3>
-      <p>State-of-the-art production facilities</p>
-    </div>
-    <div class="service-card" data-aos="zoom-in">
-      <i class="fas fa-cogs"></i>
-      <h3>Product Design & Manufacturing</h3>
-      <p>End-to-end product development solutions</p>
-    </div>
-    <div class="service-card" data-aos="zoom-in">
-      <i class="fas fa-undo"></i>
-      <h3>Reverse Engineering</h3>
-      <p>Advanced technical analysis and recreation</p>
-    </div>
-    <div class="service-card" data-aos="zoom-in">
-      <i class="fas fa-tools"></i>
-      <h3>Mechanical Fabrication</h3>
-      <p>Precision mechanical components manufacturing</p>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="about-content" data-aos="fade-up">
-    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">About Us</h2>
-    <p>Interconnecting Technologies is a leading provider of PCB design, development, and manufacturing solutions, serving industries across India. We bring innovation and precision to every circuit we build.</p>
-    
-    <div style="margin-top: 2rem; background: #f4f4f4; padding: 1.5rem; border-radius: 8px;">
-      <h4 style="color: var(--accent-color);">Strategic Partnerships</h4>
-      <p>Our sister concern <strong>Intechconnect LLP</strong> also offers PCB design and manufacturing, proudly in association with <strong>VST IoT Solutions Pvt. Ltd.</strong> located at Peruva.</p>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <h2 data-aos="fade-up" style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">PCB Gallery</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item" data-aos="zoom-in">
-      <img src="2014-03-18-edne-gp-mentor3f23bdd1bf5d3475098138a87a56d3bf9.png" alt="PCB Design">
-    </div>
-    <div class="gallery-item" data-aos="zoom-in">
-      <img src="WhatsApp Image 2025-05-20 at 22.39.19_9d7fd521.jpg" alt="PCB Manufacturing">
-    </div>
-    <div class="gallery-item" data-aos="zoom-in">
-      <img src="WhatsApp Image 2025-05-20 at 23.15.48_bf8574ed.jpg" alt="Circuit Board">
-    </div>
-  </div>
-</section>
-
-<section id="associates">
-  <div class="partners-section" data-aos="fade-up">
-    <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Associated Companies</h2>
-    <div class="about-content">
-      <p><strong>Intechconnect LLP</strong> – Partnered with VST IoT Solutions Pvt. Ltd. for PCB manufacturing at Peruva.</p>
-      <p style="margin-top: 1rem;"><strong>AS&R Circuits India Pvt. Ltd.</strong> – Our trusted partner in <strong>Military Grade PCB Manufacturing</strong>.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-content">
-    <p>© 2025 Interconnecting Technologies. All Rights Reserved.</p>
-    
-    <div class="footer-address" data-aos="fade-up">
-      <i class="fas fa-map-marker-alt"></i>
-      PRA42 Keerthanam, Perunninakulam, Irimpanam P.O<br>
-      Tripunithura, Ernakulam<br>
-      Kerala, India PIN 682309<br>
-      GSTIN : 32BPEPP4348J1ZR
-    </div>
-
-    <div style="margin-top: 1rem;">
-      <a href="www.interconnecting.in" style="color: white; text-decoration: none;">www.interconnecting.in</a> | 
-      <a href="mailto:it@interconnecting.in" style="color: white; text-decoration: none;">it@interconnecting.in</a> | 
-      <a href="mailto:ppkumarpcb@yahoo.com" style="color: white; text-decoration: none;">ppkumarpcb@yahoo.com</a> | 
-      <a href="mailto:ppkumar.pcb@gmail.com" style="color: white; text-decoration: none;">ppkumar.pcb@gmail.com</a>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 150
-  });
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const header = document.getElementById('header');
 
-  window.addEventListener('scroll', function() {
-    const nav = document.querySelector('.nav-container');
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(255,255,255,0.98)';
-      nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
-    } else {
-      nav.style.background = 'white';
-      nav.style.boxShadow = 'none';
-    }
-  });
-</script>
-</body>
-</html>
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksArray = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksArray.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // FAQ functionality
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Dynamic copyright year
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyrightYear = document.getElementById('copyright-year');
+            if (copyrightYear) {
+                copyrightYear.textContent = new Date().getFullYear();
+            }
+            
+            // Initialize FAQ
+            initFAQ();
+        });
+
+        // Form handling for CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Add analytics tracking or form submission logic here
+                console.log('CTA clicked:', e.target.textContent);
+            });
+        });
+
+        // Performance optimization
+        const debouncedResize = debounce(() => {
+            // Handle resize events
+            updateActiveNav();
+        }, 250);
+
+        window.addEventListener('resize', debouncedResize);
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Page visibility API for performance
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Pause animations or reduce activity
+            } else {
+                // Resume normal activity
+            }
+        });
+    </script>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="hero-content fade-in visible">
+<h1>Professional PCB Design &amp; Manufacturing Solutions</h1>
+<p class="subheadline">From concept to production with 25+ years of expertise. Single to 38-layer PCBs, reverse engineering, and complete product development solutions.</p>
+<a class="cta-button" href="#solution">Get Your PCB Quote</a>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="section problem" id="problem">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">Electronics Development Challenges</h2>
+<p class="section-subtitle">We understand the complex challenges you face in bringing your electronic products to market</p>
+</div>
+<div class="problem-grid">
+<div class="problem-item fade-in visible">
+<div class="problem-icon">⚡</div>
+<h3>Complex Circuit Design Requirements</h3>
+<p>Struggling with intricate PCB layouts, signal integrity, and impedance matching for high-frequency applications</p>
+</div>
+<div class="problem-item fade-in visible">
+<div class="problem-icon">⏰</div>
+<h3>Tight Development Timelines</h3>
+<p>Need fast-track PCB prototyping and manufacturing to meet critical project deadlines and market windows</p>
+</div>
+<div class="problem-item fade-in visible">
+<div class="problem-icon">🔧</div>
+<h3>Manufacturing Quality Concerns</h3>
+<p>Worried about PCB reliability, component sourcing, and maintaining consistent quality across production runs</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="section" id="solution">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">Complete PCB Solutions Under One Roof</h2>
+<p class="section-subtitle">End-to-end PCB services from initial concept to final product delivery</p>
+</div>
+<div class="solution-content">
+<div class="solution-image slide-in-left visible">
+<img alt="Professional PCB manufacturing facility" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/909a6e25545e44c39f78ec1004aa89aa-MYbhN8KaaEc.jpg">
+</div>
+<div class="solution-text slide-in-right visible">
+<h3>Why Choose Interconnecting Technologies?</h3>
+<ul class="solution-list">
+<li>25+ years of proven expertise in PCB design and manufacturing</li>
+<li>Single to 38-layer PCB capabilities with partner networks</li>
+<li>In-house manufacturing for 1-8 layer PCBs</li>
+<li>Complete reverse engineering services</li>
+<li>Fast-track processing for urgent projects</li>
+<li>Comprehensive component sourcing and BOM management</li>
+<li>Full product development from concept to cabinet</li>
+<li>Quality certifications and compliance support</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="section benefits" id="benefits">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">Key Benefits</h2>
+<p class="section-subtitle">Experience the advantages of working with India's leading PCB specialists</p>
+</div>
+<div class="benefits-grid">
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">🎯</div>
+<h3>Precision Engineering</h3>
+<p>Advanced design tools and manufacturing processes ensure optimal performance and reliability for your circuits</p>
+</div>
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">🚀</div>
+<h3>Faster Time-to-Market</h3>
+<p>Streamlined processes and fast-track options help you launch products ahead of competition</p>
+</div>
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">💰</div>
+<h3>Cost-Effective Solutions</h3>
+<p>Competitive pricing with local manufacturing setup and strategic partnerships for volume production</p>
+</div>
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">🏆</div>
+<h3>Quality Assurance</h3>
+<p>Rigorous testing, quality control, and compliance with international standards and certifications</p>
+</div>
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">🔄</div>
+<h3>Complete Support</h3>
+<p>From initial design consultation to post-production support and product lifecycle management</p>
+</div>
+<div class="benefit-card fade-in visible">
+<div class="benefit-icon">🌐</div>
+<h3>Global Reach</h3>
+<p>Serving clients across India and abroad with international shipping and support capabilities</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="section" id="testimonials">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">What Our Clients Say</h2>
+<p class="section-subtitle">Trusted by leading companies for mission-critical PCB projects</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial fade-in visible">
+<div class="testimonial-content">
+                        "Interconnecting Technologies delivered exceptional PCB design services for our IoT product line. Their expertise in high-frequency circuits and attention to detail helped us achieve optimal performance while meeting tight deadlines."
+                    </div>
+<div class="testimonial-author">
+<div class="author-avatar">RK</div>
+<div class="author-info">
+<h4>Rajesh Kumar</h4>
+<span>CTO, TechStart Solutions</span>
+</div>
+</div>
+</div>
+<div class="testimonial fade-in visible">
+<div class="testimonial-content">
+                        "The reverse engineering service saved our project when we needed to upgrade legacy hardware. Professional team, quality work, and excellent communication throughout the process."
+                    </div>
+<div class="testimonial-author">
+<div class="author-avatar">MS</div>
+<div class="author-info">
+<h4>Meera Sharma</h4>
+<span>Product Manager, Industrial Systems Ltd</span>
+</div>
+</div>
+</div>
+<div class="testimonial fade-in visible">
+<div class="testimonial-content">
+                        "Outstanding manufacturing quality and reliability. Their 8-layer PCBs for our medical devices met all regulatory requirements and performed flawlessly in field testing."
+                    </div>
+<div class="testimonial-author">
+<div class="author-avatar">AS</div>
+<div class="author-info">
+<h4>Dr. Amit Singh</h4>
+<span>R&amp;D Director, MedTech Innovations</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="section" id="features">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">Our Service Portfolio</h2>
+<p class="section-subtitle">Comprehensive PCB and electronics manufacturing services</p>
+</div>
+<div class="features-grid">
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="PCB Design Services" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/18973cf77e764b90b997fe42342018f0-oqStl2L5oxI.jpg">
+</div>
+<h3>PCB Design &amp; Development</h3>
+<p>Complete schematic preparation, BOM creation, PCB layout design, and Gerber/ODB++ file generation for manufacturing</p>
+</div>
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="PCB Manufacturing" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/fa5d8aa70f3b41499927c9e967e60e82-ZVxCS_egz6Q.jpg">
+</div>
+<h3>PCB Manufacturing</h3>
+<p>1-8 layer in-house production, up to 38 layers with partners. Standard to MIL-grade materials with various finishes and specifications</p>
+</div>
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="Reverse Engineering" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/08a3463bf1994f1fa943d208765d990a-83udtzyaTS4.jpg">
+</div>
+<h3>Reverse Engineering</h3>
+<p>PCB reverse engineering up to 2 layers, schematic recreation, BOM generation, and PCB duplication services</p>
+</div>
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="PCB Assembly" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/33d2c796b2154b62a82a933777ffd0c4-zs4gtT8thO0.jpg">
+</div>
+<h3>PCB Assembly &amp; Testing</h3>
+<p>Professional PCB assembly services, stencil fabrication, component placement, and comprehensive testing solutions</p>
+</div>
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="Mechanical Fabrication" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/a2966a28460d426eacc4498e15cde566-RLDjPI-r5fU.jpg">
+</div>
+<h3>Mechanical Fabrication</h3>
+<p>Custom cabinets, heat sinks, 3D printing, laser cutting, CNC milling, and various finishing options including plating and coating</p>
+</div>
+<div class="feature-card fade-in visible">
+<div class="feature-image">
+<img alt="Product Development" loading="lazy" src="https://storage.googleapis.com/sitebuild-prod.firebasestorage.app/sites/qlnd1mquWDfNWUhGRJ28e9Xejk52/K66ExZlGtLYdhsTrO8wU/images/81361888829e4dbeb0da7ab01b3d12d7-0tSiofevpUs.jpg">
+</div>
+<h3>Product Development</h3>
+<p>End-to-end product development from concept to finished product, including certification support and component sourcing</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="section faq" id="faq">
+<div class="container">
+<div class="section-header fade-in visible">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<p class="section-subtitle">Get answers to common questions about our PCB services</p>
+</div>
+<div class="faq-container">
+<div class="faq-item fade-in visible">
+<button aria-expanded="false" class="faq-question">
+                        What is your typical turnaround time for PCB prototypes?
+                        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+                            For standard 2-4 layer PCB prototypes, our typical turnaround time is 3-5 business days. We also offer fast-track processing for urgent projects, which can deliver prototypes in 24-48 hours. Complex multi-layer boards may require 7-10 days depending on specifications.
+                        </div>
+</div>
+</div>
+<div class="faq-item fade-in visible">
+<button aria-expanded="false" class="faq-question">
+                        What file formats do you accept for PCB design?
+                        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+                            We accept all standard PCB design formats including Gerber files, ODB++, native files from Altium Designer, Eagle, KiCad, and other major EDA tools. We can also work from hand-drawn sketches to create complete schematics and PCB layouts.
+                        </div>
+</div>
+</div>
+<div class="faq-item fade-in visible">
+<button aria-expanded="false" class="faq-question">
+                        Do you provide component sourcing services?
+                        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+                            Yes, we offer comprehensive component sourcing services both from India and abroad. Our team can help you source components, create detailed BOMs, suggest alternatives for obsolete parts, and ensure cost-effective procurement for your projects.
+                        </div>
+</div>
+</div>
+<div class="faq-item fade-in visible">
+<button aria-expanded="false" class="faq-question">
+                        What quality standards do you follow?
+                        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+                            We follow IPC standards for PCB manufacturing and assembly. Our quality management system ensures rigorous testing at every stage. We also provide support for various certifications including CE, FCC, and other regulatory approvals as needed for your products.
+                        </div>
+</div>
+</div>
+<div class="faq-item fade-in visible">
+<button aria-expanded="false" class="faq-question">
+                        Can you handle both prototype and production volumes?
+                        <span class="faq-icon">+</span>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-content">
+                            Absolutely! We handle everything from single prototype PCBs to large production runs. Our in-house facility manages 1-8 layer PCBs efficiently, while our strategic partnerships enable us to handle high-volume production of complex multi-layer boards up to 38 layers.
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="section final-cta">
+<div class="container">
+<div class="cta-content fade-in visible">
+<h2>Ready to Start Your PCB Project?</h2>
+<p>Get a free consultation and quote for your PCB design and manufacturing needs. Our expert team is ready to bring your electronic innovations to life.</p>
+<a class="cta-button secondary" href="#contact">Get Free Quote Today</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Interconnecting Technologies</h3>
+<p>Leading PCB design and manufacturing solutions provider since 1998. Now operating as IntechConnect LLP with advanced local manufacturing capabilities.</p>
+</div>
+<div class="footer-section">
+<h3>Services</h3>
+<ul class="footer-links">
+<li><a href="#services">PCB Design</a></li>
+<li><a href="#services">PCB Manufacturing</a></li>
+<li><a href="#services">Reverse Engineering</a></li>
+<li><a href="#services">Product Development</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Contact Info</h3>
+<p>Manufacturing Setup:<br>
+                    VST IoT Solutions Pvt. Ltd.<br>
+                    Peruva, Mulakkulam Panchayath<br>
+                    Kottayam District, Kerala</p>
+</div>
+<div class="footer-section">
+<h3>Associated Companies</h3>
+<ul class="footer-links">
+<li><a href="https://ascrpcb.com" rel="noopener" target="_blank">AS&amp;R - ascrpcb.com</a></li>
+<li><a href="https://asc-i.com" rel="noopener" target="_blank">ASC-i - asc-i.com</a></li>
+<li><a href="https://micropack.in" rel="noopener" target="_blank">Micropack - micropack.in</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© <span id="copyright-year">2025</span> Interconnecting Technologies (IntechConnect LLP). All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>document.addEventListener('DOMContentLoaded',function(){const ORG_ID="qlnd1mquWDfNWUhGRJ28e9Xejk52_K66ExZlGtLYdhsTrO8wU";const leadForms=document.querySelectorAll('form[data-form-type="officeiq-lead"]');leadForms.forEach(form=>{if(!form.querySelector('input[name="orgID"]')){const orgIdInput=document.createElement('input');orgIdInput.type='hidden';orgIdInput.name='orgID';orgIdInput.value=ORG_ID;form.appendChild(orgIdInput);}
+form.addEventListener('submit',handleLeadFormSubmit);});function handleLeadFormSubmit(event){event.preventDefault();const form=event.target;const submitButton=form.querySelector('button[type="submit"]');if(!submitButton)return;const originalButtonText=submitButton.textContent;submitButton.textContent='Submitting...';submitButton.disabled=true;const formData=new FormData(form);const leadData={timestamp:new Date().toISOString(),page_url:window.location.href,referrer:document.referrer||'Direct',form_name:form.getAttribute('data-form-name')||form.id||'Lead Form'};for(const[key,value]of formData.entries()){if(value&&value.trim()!==''){leadData[key]=value;}}
+console.log('Form submission data:',leadData);fetch('https://lead-handler-service-600378212322.us-central1.run.app/submit-lead',{method:'POST',headers:{'Content-Type':'application/json',},body:JSON.stringify(leadData)}).then(response=>{if(!response.ok){return response.json().then(errorData=>{throw new Error(errorData.error||'Submission failed');}).catch(err=>{throw new Error('Network response was not ok');});}
+return response.json();}).then(data=>{form.reset();if(typeof gtag==='function'){gtag('event','lead_submission',{'event_category':'lead','event_label':form.id||'lead_form'});}
+const redirectUrl=form.getAttribute('data-redirect');if(redirectUrl){window.location.href=redirectUrl;}}).catch(error=>{console.error('Error submitting form:',error);alert('There was an error submitting your information. Please try again or contact us directly.');}).finally(()=>{submitButton.textContent=originalButtonText;submitButton.disabled=false;});}});</script></body></html>
